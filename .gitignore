@@ -1,0 +1,5 @@
+tests
+test
+__pycache__
+*.bku
+.env
