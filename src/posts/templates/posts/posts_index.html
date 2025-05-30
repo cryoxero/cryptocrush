@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cryptocrush - Posts</title>
+  <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+  <script src="{% static 'js/posts.js' %}" defer></script>
+</head>
+<body>
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  <div class="container">
+
+    <aside class="sidebar">
+      <h2>Posts</h2>
+      <ul>
+        <li><a href="#" data-post="0">History of Cryptography</a></li>
+        <li><a href="#" data-post="1">Caesar Cipher Explained</a></li>
+        <li><a href="#" data-post="2">Modern Encryption</a></li>
+    </aside>
+
+    <main class="main-content">
+      <h1>Cryptocrush</h1>
+      <div class="codebreaker" id="codebreaker"></div>
+      <article id="post-content">
+        <h2>Welcome to the Posts</h2>
+        <p>Select a topic from the left to explore fascinating stories, techniques, and challenges from the world of cryptography.</p>
+      </article>
+    </main>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Cryptocrush. All rights reserved.  
+    <br />
+    <a href="https://github.com/cryoxero/cryptocrush" target="_blank" rel="noopener">View on GitHub</a>
+  </footer>
+
+</body>
+</html>
+
