@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,26 +9,27 @@
   <script src="{% static 'js/posts.js' %}" defer></script>
 </head>
 <body>
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-  <div class="container">
+  <header>
+    <h1>Cryptocrush</h1>
+    <button class="login-btn">Login</button>
+  </header>
 
+  <div class="layout">
     <aside class="sidebar">
       <h2>Posts</h2>
       <ul>
-        <li><a href="#" data-post="0">History of Cryptography</a></li>
-        <li><a href="#" data-post="1">Caesar Cipher Explained</a></li>
-        <li><a href="#" data-post="2">Modern Encryption</a></li>
+        {% for post in post_list %}
+		<li><a href="{% url 'posts:posts' slug=post.slug %}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
     </aside>
 
     <main class="main-content">
-      <h1>Cryptocrush</h1>
-      <div class="codebreaker" id="codebreaker"></div>
       <article id="post-content">
-        <h2>Welcome to the Posts</h2>
-        <p>Select a topic from the left to explore fascinating stories, techniques, and challenges from the world of cryptography.</p>
+        <h2 id="animated-title">{{ curr_post.title }}</h2>
+		{{ curr_post.body }}
       </article>
     </main>
-
   </div>
 
   <footer>
@@ -36,7 +37,6 @@
     <br />
     <a href="https://github.com/cryoxero/cryptocrush" target="_blank" rel="noopener">View on GitHub</a>
   </footer>
-
 </body>
 </html>
 

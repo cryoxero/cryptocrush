@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import posts_page
 
+app_name = "posts"
+
 urlpatterns = [
-    path('', posts_page)
+    path('<slug:slug>', posts_page, name="posts")
 ]

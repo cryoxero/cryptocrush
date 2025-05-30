@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
     <p class="description">
       Welcome to Cryptocrush, your gateway to the fascinating world of cryptography and ciphers. Whether you're a beginner or a seasoned codebreaker, explore interactive lessons, historical insights, and hands-on challenges to unlock the secrets behind secure communication. Dive in and start crushing codes today!
     </p>
-    <a href="/posts" class="cta-button">Get Started</a>
+	<a href="{% url 'posts:posts' slug='history-of-cryptography' %}" class="cta-button">Get Started</a>
   </header>
 
   <footer>
