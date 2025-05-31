@@ -1,19 +1,39 @@
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
+  width: 100%;
   font-family: 'Segoe UI', sans-serif;
   background: #000;
   color: #eee;
-  height: 100vh;
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Main Page Scrollbar Styling */
+/* Global Anchor Tag Styling */
+a {
+  color: #ff5252;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #ff5252;
+  text-decoration: underline;
+}
+
+/* Scrollbar Styling */
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -28,12 +48,10 @@ body::-webkit-scrollbar-thumb {
   border: 2px solid #000;
 }
 
-/* Firefox */
 body {
   scrollbar-width: thin;
   scrollbar-color: #b71c1c #000;
 }
-
 
 /* Header */
 header {
@@ -64,8 +82,9 @@ header h1 {
 /* Layout */
 .layout {
   display: flex;
-  flex: 1;
-  height: calc(100vh - 70px); /* subtract header height */
+  flex: 1 1 auto;
+  min-height: 0;
+  height: calc(100vh - 70px);
   overflow: hidden;
 }
 
@@ -76,6 +95,7 @@ header h1 {
   border-right: 2px solid #d32f2f;
   padding: 20px;
   overflow-y: auto;
+  flex-shrink: 0;
 }
 
 .sidebar h2 {
@@ -101,24 +121,6 @@ header h1 {
   color: #ff5252;
 }
 
-/* Main Content */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-#post-content h2 {
-  font-size: 2rem;
-  font-style: italic;
-  color: #ff5252;
-  font-family: monospace;
-  white-space: nowrap;
-  letter-spacing: 3px;
-  margin-bottom: 1.5rem;
-}
-
-/* Sidebar Scrollbar Styling */
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }
@@ -133,12 +135,57 @@ header h1 {
   border: 2px solid #1a0000;
 }
 
-/* Firefox scrollbar support */
 .sidebar {
   scrollbar-width: thin;
   scrollbar-color: #b71c1c #1a0000;
 }
 
+/* Main Content */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #0d0d0d;
+}
+
+#post-content {
+  width: 100%;
+  max-width: 850px;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 82, 82, 0.15);
+  line-height: 1.7;
+  overflow: visible;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Headings */
+#post-content h2 {
+  font-size: 2rem;
+  font-style: italic;
+  color: #ff5252;
+  font-family: monospace;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  white-space: normal;
+}
+
+#post-content h3 {
+  color: #d32f2f;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#post-content p {
+  margin-bottom: 1rem;
+}
 
 /* Footer */
 footer {
@@ -147,6 +194,7 @@ footer {
   text-align: center;
   padding: 20px;
   border-top: 2px solid #d32f2f;
+  background-color: #000;
   flex-shrink: 0;
 }
 

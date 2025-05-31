@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load markdown_extras %}
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -27,7 +28,7 @@
     <main class="main-content">
       <article id="post-content">
         <h2 id="animated-title">{{ curr_post.title }}</h2>
-		{{ curr_post.body }}
+		{{ curr_post.body | markdown | safe }}
       </article>
     </main>
   </div>
